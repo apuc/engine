@@ -1,0 +1,97 @@
+.breadcrumbs {margin-top: 12px;margin-bottom: 8px;}
+.breadcrumbs a {background-color: #E6E6E6;color: #607586 !important;font-size: 0.97em;padding: 2px 5px;text-decoration: none;text-transform: uppercase;}
+.breadcrumbs span{text-transform: uppercase;font-weight: bold;color: #607586;}
+.model-title {font-size: 12px; line-height: 16px; font-weight: bold; text-transform: uppercase;}
+.model-link, .model-title a {color: #293848; text-decoration: none;}
+.model-text p, .model-text div.post-txt {color: #607586; line-height: 18px;}
+.top-level.left-col{
+	width: 750px; 
+	margin: 0 60px 0 0;
+}
+.top-level-models{
+	margin-top: 20px;
+}
+.top-level-models div.model{
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+.top-level-models div.model:first-child{
+	border-top: none;
+}
+.top-level-models div.model > a .model-image{
+	float: left;
+	width: 190px;
+	height: 120px;
+	overflow: hidden;
+	position: relative;
+}
+.top-level-models div.model > a .model-title{
+	float: right;
+    width: 550px;
+}
+.top-level-models .model-text{
+	float: right;
+	width: 550px;
+	height: 120px;
+}
+.top-level-models div.model > a img {
+	width: 186px;
+}
+.read-more{display: block;text-align: right;font-style: italic;}
+.cols {margin: 31px 0 38px;}
+.cols .title {padding-bottom: 7px;}
+.left-col, .right-col {display: inline-block; *display: inline; *zoom: 1; vertical-align: top;}
+.left-col {width: 690px; margin-right: 24px;}
+.left-col h1 {font-size: 18px;margin: 0 0 5px;color: #293848 !important;}
+.right-col {width: 385px;}
+.right-col{color:#293848 !important;}
+.right-col h4 span{text-transform: uppercase;color: #607586}
+.right-col h4, .left-col h1 {font-size: 18px;margin: 18px 0 5px;color: #293848 !important;}
+/* tooltip */
+.left-col .tooltip{
+	position:relative;
+	z-index:1;
+	zoom:1;
+	cursor: pointer;
+}
+.left-col .tooltip em{display:none;}
+.left-col .tooltip:hover em{
+	display:block;
+	position:absolute;
+	z-index:1;
+	background-color:#e6e6e6;
+	-webkit-border-radius:5px; /* красивости в виде скругленных углов */
+	-moz-border-radius:5px;
+	border-radius:5px;
+	line-height:normal;
+	color:#607586;
+	text-decoration:none;
+	padding:3px 5px;
+	bottom:22px;
+	right:0;
+	-webkit-box-shadow:0 0 5px #e6e6e6; /* красивости в виде тени */
+	-moz-box-shadow:0 0 5px #e6e6e6;
+	box-shadow:0 0 5px #e6e6e6;
+}
+.left-col .tooltip:hover em i{
+	position:absolute;
+	z-index:1;
+	bottom:-7px;
+	right:5px;
+	border-top:7px solid #e6e6e6;
+	border-left:7px solid transparent;
+	_border-left:7px solid #e6e6e6; /* цвет фона. это для ие6.*/
+	display:block;
+	height:0;
+	overflow:hidden;
+}
+/* end tooltip */
+.views_icon,.author_icon,.count_photo_icon{
+	vertical-align: middle;
+	height: 15px;
+	width: auto !important;
+	margin-top: -2px;
+}
+.catfunc{
+	font-size: 0.8em;
+}

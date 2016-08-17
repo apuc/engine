@@ -1,0 +1,27 @@
+.editPanel{box-shadow: 1px 1px 2px -1px;float: right;padding: 3px 4px 0 0;}
+.editPanel a{}
+.editPanel img{margin: 0 !important;padding: 0 !important;width: 14px !important;}
+.editPanel .published-btn {cursor:pointer;border: 0;background: none;padding: 0 2px;}
+
+.form-post-edit p {color: #293848; font-size: 18px; line-height: 22px; margin-bottom: 20px;}
+.form-post-edit .title {margin-bottom: 16px;}
+.form-post-edit form span {color: #607586; text-transform: uppercase;}
+.form-post-edit form {background: #f8f8f8; border: 1px solid #d1d5dc; padding: 15px 16px 12px;}
+.form-post-edit input[type="text"] {border: 1px solid #d1d5dc; color: #607586; font-size: 14px; background: #fff; padding: 0 10px; width: 96%; height: 40px; line-height: 40px;}
+.form-post-edit .right-col input[type="text"] {border: 1px solid #d1d5dc; color: #607586; font-size: 12px; background: #fff; padding: 0; width: 96%; height: 15px;line-height: 15px;}
+.form-post-edit {margin-bottom: 47px;}
+.form-post-edit textarea {width: 90%; padding: 10px; font-size: 14px;}
+.form-post-edit .left-col textarea{min-height: 500px;}
+.form-post-edit .button-submit{width:100%;text-align: right;}
+.form-post-edit .button {padding: 0 5px;height: 41px; margin: 5px 0 0; background: #2b3b4e; color: #fff; border: 0; font-size: 18px; line-height: 39px;display: inline-block;}
+
+.form-post-edit fieldset.keywords-edit {
+    border: 2px groove threedface;
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+.success{display: block;padding: 2px 5px 4px;background: #90EE90; color:#FFFFFF; font-weight: bold; font-size: 1em}
+.warning{display: block;padding: 2px 5px 4px;background: #FF0000; color:#FFFFFF; font-weight: bold; font-size: 1em}

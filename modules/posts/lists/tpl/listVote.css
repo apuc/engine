@@ -1,0 +1,115 @@
+.clear {
+	clear: both;
+}
+.like {
+	margin-top:20px;
+	text-align: center;
+	padding-top: 10px;
+}
+.like a {
+	background-image: url('<?=HREF?>/files/template/icons/fbvote.png');
+	width: 40px;
+	height: 40px;
+	display: block;
+	margin-top:-10px;
+}
+.like span {
+	font-size: 20px;
+}
+.like a:first-child {
+	float: left;
+	background-position: -40px -40px;
+}
+.like a.a_dislike {
+	float: right;
+	background-position: 0px -39px;
+}
+.like a.a_like {
+	float: right;
+	background-position: 0px 0px;
+}
+.cols {
+	margin: 31px 0 38px;
+}
+.left-col, .right-col {display: inline-block; *display: inline; *zoom: 1; vertical-align: top;}
+.right-col h4, .left-col h1 {
+	color: #293848 !important;
+	font-size: 18px;
+	margin: 18px 0 5px;
+}
+.main-list.left-col{
+	margin: 0 60px 0 0;
+	width: 690px;
+}
+.models {background: #f8f8f8; padding: 20px 24px 20px 18px; border: 1px solid #d1d5dc; margin-bottom: 19px;}
+.models>div img {width:100%;}
+.models>div iframe {width:100%;max-height: 250px;}
+.models>div {background: #fff; border: 1px solid #d1d5dc; padding: 19px; margin-bottom: 20px;}
+.model-text {display: inline-block; *display: inline; *zoom: 1; vertical-align: top; width: 100%}
+.model-title {font-size: 12px; line-height: 16px; font-weight: bold; text-transform: uppercase;}
+.model-link, .model-title a {color: #293848; text-decoration: none;}
+.model-text p, .model-text div.post-txt {color: #607586; line-height: 18px;}
+.model-text div.post-txt {
+	height: 375px;
+	position: relative;
+	overflow: hidden;
+	clear:both;
+}
+.model-text div.post-txt .grad {  
+	position: absolute;
+	bottom: 0;
+	height: 60px;
+	left: 0;
+	width: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,1)));
+	background: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,1));
+	filter: progid:DXImageTransform.Microsoft.gradient(
+		startColorstr=#FFFFFF00, endColorstr=#FFFFFFFF
+	);
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(
+	  startColorstr=#FFFFFF00, endColorstr=#FFFFFFFF
+	);
+}
+.views_icon,.author_icon,.count_photo_icon{
+	vertical-align: middle;
+	height: 15px;
+	width: auto !important;
+	margin-top: -2px;
+}
+.left-col .tooltip{
+	position:relative;
+	z-index:1;
+	zoom:1;
+	cursor: pointer;
+}
+.left-col .tooltip em{display:none;}
+.left-col .tooltip:hover em{
+	display:block;
+	position:absolute;
+	z-index:1;
+	background-color:#e6e6e6;
+	-webkit-border-radius:5px; /* красивости в виде скругленных углов */
+	-moz-border-radius:5px;
+	border-radius:5px;
+	line-height:normal;
+	color:#607586;
+	text-decoration:none;
+	padding:3px 5px;
+	bottom:22px;
+	right:0;
+	-webkit-box-shadow:0 0 5px #e6e6e6; /* красивости в виде тени */
+	-moz-box-shadow:0 0 5px #e6e6e6;
+	box-shadow:0 0 5px #e6e6e6;
+}
+.left-col .tooltip:hover em i{
+	position:absolute;
+	z-index:1;
+	bottom:-7px;
+	right:5px;
+	border-top:7px solid #e6e6e6;
+	border-left:7px solid transparent;
+	_border-left:7px solid #e6e6e6; /* цвет фона. это для ие6.*/
+	display:block;
+	height:0;
+	overflow:hidden;
+}

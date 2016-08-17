@@ -1,0 +1,95 @@
+<?php
+class admin_themes extends control{
+	function __construct($input=''){ # $input - объект входных переменных от других модулей
+		$this->data=new stdClass;
+		if(empty($input->act)) $input->act='index';
+		
+		/*
+			определяет список доступных действий (act)
+			если запрошенного act нет в спсике, то будет вызван метод совпадающий с названием данного класса
+		*/
+		if($input->act=='index'){
+			$this->data=(object)array(
+				'test'=>'',
+			);
+		}elseif($input->act=='status'){
+			
+		}elseif($input->act=='set'){
+			$this->data=(object)array(
+				'settheme'=>isset($_POST['settheme'])?$_POST['settheme']:false,
+			);
+		}elseif($input->act=='usePreTheme'){
+			$this->data=(object)array(
+				'prethemes'=>isset($_POST['prethemes'])?$_POST['prethemes']:false,
+			);
+		}elseif($input->act=='edit'){
+			$this->data=(object)array(
+				'theme'=>empty($input->theme)?false:$input->theme,
+				'ext'=>empty($_COOKIE['edit_ext'])?false:(bool)$_COOKIE['edit_ext'],
+				'clone'=>empty($input->clone)?false:$input->clone,
+			);
+		}elseif($input->act=='del'){
+			$this->data=(object)array(
+				'theme'=>empty($input->theme)?false:$input->theme,
+			);
+		}elseif($input->act=='openFile'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+			);
+		}elseif($input->act=='openFileCss'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+			);
+		}elseif($input->act=='saveFile'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+				'text'=>!isset($_POST['text'])?false:$_POST['text'],
+				'css'=>!isset($_POST['css'])?false:$_POST['css'],
+			);
+		}elseif($input->act=='genBaseTheme'){
+			$this->data=(object)array(
+				'postCall'=>empty($_POST['postCall'])?false:$_POST['postCall'],
+				'internalCall'=>empty($input->easy)?0:$input->easy,
+			);
+		}elseif($input->act=='newTheme'){
+			$this->data=(object)array(
+				'name'=>empty($_POST['name'])?'':$_POST['name'],
+			);
+		}elseif($input->act=='cloneTpl'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+				'clone'=>empty($_POST['clone'])?false:$_POST['clone'],
+				'ext'=>empty($_COOKIE['edit_ext'])?false:(bool)$_COOKIE['edit_ext'],
+			);
+		}elseif($input->act=='createTpl'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+			);
+		}elseif($input->act=='delTpl'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+			);
+		}elseif($input->act=='uploadFile'){
+			$this->data=(object)array(
+				'file'=>empty($_FILES['file'])?false:$_FILES['file'],
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+			);
+		}elseif($input->act=='exportTpl'){
+			$this->data=(object)array(
+				'theme'=>empty($input->theme)?false:$input->theme,
+			);
+		}elseif($input->act=='importTpl'){
+			$this->data=(object)array(
+				'file'=>empty($_FILES['importTheme'])?false:$_FILES['importTheme'],
+			);
+		}else
+			$this->act=false;
+	}
+}

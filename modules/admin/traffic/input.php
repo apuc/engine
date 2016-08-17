@@ -1,0 +1,83 @@
+<?php
+/*
+* Должен возвращать
+* $this->data - объект обработанных входных переменных
+* $this->act - какую функцию обработки используем
+*/
+class admin_traffic extends control{
+	function __construct($input=''){
+		$this->data=(object)array();
+		if(empty($input->act)) $input->act='index';
+		
+		if($input->act=='index'){
+			$this->data=(object)array(
+				'start'=>cookiePage($input,'start',date("Y-m-d",time()-604800)),
+				'stop'=>cookiePage($input,'stop',date("Y-m-d")),
+				'page'=>empty($input->page)?1:$input->page,
+				'num'=>cookiePage($input,'num',10),
+				'sort'=>empty($input->sort)?'':$input->sort,
+			);
+		}elseif($input->act=='cats'){
+			$this->data=(object)array(
+				'start'=>cookiePage($input,'start',date("Y-m-d",time()-604800)),
+				'stop'=>cookiePage($input,'stop',date("Y-m-d")),
+				'page'=>empty($input->page)?1:$input->page,
+				'num'=>cookiePage($input,'num',10),
+				'sort'=>empty($input->sort)?'':$input->sort,
+				'parent'=>empty($input->parent)?'':$input->parent,
+			);
+		}elseif($input->act=='posts'){
+			$this->data=(object)array(
+				'start'=>cookiePage($input,'start',date("Y-m-d",time()-604800)),
+				'stop'=>cookiePage($input,'stop',date("Y-m-d")),
+				'page'=>empty($input->page)?1:$input->page,
+				'num'=>cookiePage($input,'num',10),
+				'sort'=>empty($input->sort)?'':$input->sort,
+				'cid'=>empty($input->cid)?'':$input->cid,
+			);
+		}elseif($input->act=='itemPost'){
+			$this->data=(object)array(
+				'pid'=>empty($input->pid)?false:$input->pid,
+				'start'=>cookiePage($input,'start',date("Y-m-d",time()-604800)),
+				'stop'=>cookiePage($input,'stop',date("Y-m-d")),
+				'page'=>empty($input->page)?1:$input->page,
+				'num'=>cookiePage($input,'num',10),
+				'sort'=>empty($input->sort)?'':$input->sort,
+			);
+		}elseif($input->act=='itemCat'){
+			$this->data=(object)array(
+				'cid'=>empty($input->cid)?false:$input->cid,
+				'start'=>cookiePage($input,'start',date("Y-m-d",time()-604800)),
+				'stop'=>cookiePage($input,'stop',date("Y-m-d")),
+				'page'=>empty($input->page)?1:$input->page,
+				'num'=>cookiePage($input,'num',10),
+				'sort'=>empty($input->sort)?'':$input->sort,
+			);		
+		}elseif($input->act=='write'){
+			$this->data=(object)array(
+				'module'=>$input->module,
+			);
+		}elseif($input->act=='anotherRunning'){
+			$this->data=(object)array();
+		}elseif($input->act=='initParsing'){
+			$this->data=(object)array('run'=>isset($_POST['repl_parsing_run'])?true:false);
+		}elseif($input->act=='showLog'){
+			$this->data=(object)array(
+				'log'=>empty($input->log)?false:$input->log,
+				'tail'=>empty($input->tail)?0:(int)$input->tail,
+			);
+		}elseif($input->act=='clearLog'){
+			$this->data=(object)array();
+		}elseif($input->act=='setCron'){
+			$this->data=(object)array('type'=>!empty($input->type)?$input->type:'');
+		}elseif($input->act=='statusCron'){
+			$this->data=(object)array();
+		}elseif($input->act=='getRivals'){
+			$this->data=(object)array(
+				'date'=>cookiePage($input,'stop',date("Y-m-d")),
+				'cacheclear'=>!empty($input->cacheclear)?$input->cacheclear:false,
+			);
+		}else
+			$this->act=false;
+	}
+}

@@ -1,0 +1,28 @@
+.popup-overlay{
+	-moz-user-select: none;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 400 !important;
+	background: none repeat scroll 0 0 #000;
+	opacity: 0.3;
+	text-align: center;
+}
+.popup{position: fixed;top: 15%;width: 100%;z-index: 500;}
+.popup>div{background: none repeat scroll 0 0 white;border-radius: 10px;padding: 35px 45px;width: 680px;margin: 0 auto;text-align: center;box-shadow: 0 0 10px 1px;}
+.popup span{font-size: 25px; line-height: 35px;	padding:20px 0; margin-bottom: 5px;border-bottom: 1px dashed silver; display: block;}
+.popup small{display: block;}
+.popup .close-button{float: right; font-size: 20px; margin: -17px -24px 0 0;}
+.popup a{text-decoration: none;color:#000;}
+.popup a:hover{text-decoration: none;}
+
+.popup-side{display:none; position: fixed;bottom: 25px;right: 25px;z-index: 500;}
+.popup-side>div{border:1px solid silver; background: none repeat scroll 0 0 white;border-radius: 10px;padding: 35px 20px;width: 300px;margin: 0 auto;text-align: center;}
+.popup-side span{font-size: 16px; line-height: 20px;padding:0; margin-bottom: 5px;border-bottom: 1px dashed silver; display: block;}
+.popup-side small{display: block;}
+.popup-side .close-button{float: right; font-size: 18px; margin: -28px -11px 0 0;}
+.popup-side a{text-decoration: none;color:#000;}
+.popup-side a:hover{text-decoration: none;}

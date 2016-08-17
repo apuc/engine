@@ -1,0 +1,30 @@
+.userDiv{
+	position: absolute; z-index: 99; left: 360px; top: 160px; display: none; 
+	-moz-border-radius:8px 8px 8px 8px;
+	background: gray;
+	width:560px;
+	text-align:left;
+}
+.userDiv .box{
+	-moz-border-radius:5px 5px 5px 5px;
+	background:url("/files/user/bg2.png") no-repeat scroll left bottom #FFFFFF;
+	border:1px solid rgba(41, 41, 41, 0.4);
+	margin:8px;
+	min-height:200px;
+	padding:20px;
+	position:relative;
+}
+.userDiv a{
+	display:inline !important;
+	margin:0px !important;
+	background: none !important;
+	color:#607586 !important;
+}
+.userDiv a:hover{text-decoration:underline !important;}
+.userDiv .close img{
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	z-index: 10000;
+}

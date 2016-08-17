@@ -1,0 +1,146 @@
+<?php
+ /*
+  * Должен возвращать
+  * $this->data - объект обработанных входных переменных
+  * $this->act - какую функцию обработки используем
+  */
+class posts_admin extends control{
+	function __construct($input=''){ # $input - объект входных переменных от других модулей
+		$this->data=(object)array();
+		if(@$input->act=='') $input->act='index';
+		
+		if($input->act=='del'){
+			$this->data=(object)array(
+				'pid'=>(int)@$_GET['pid'],
+				'prfxtbl'=>!empty($_GET['prfxtbl'])?$_GET['prfxtbl']:'',
+			);
+		}elseif($input->act=='delPosts'){
+			$this->data=(object)array(
+				'pids'=>@$_POST['pids'],
+				'prfxtbl'=>!empty($_POST['prfxtbl'])?$_POST['prfxtbl']:'',
+			);
+		}elseif($input->act=='edit'){
+			if(!empty($input->save)){
+				$this->act='save';
+				$images=array();
+				$images['files']=!empty($_FILES['images']['tmp_name'])?$_FILES['images']['tmp_name']:false;
+				$images['urls']=!empty($_POST['images'])?$_POST['images']:'';
+				$images['keyword']=!empty($_POST['imagesInputTitle'])?$_POST['imagesInputTitle']:'';
+				$images['description']=!empty($_POST['imagesInputDescription'])?$_POST['imagesInputDescription']:'';
+				$images['href']=!empty($_POST['imagesInputHref'])?$_POST['imagesInputHref']:'';
+				$images['tbn']=!empty($_POST['imagesInputTbn'])?$_POST['imagesInputTbn']:'';
+				$images['gtitle']=!empty($_POST['imagesInputPt'])?$_POST['imagesInputPt']:'';
+				$images['keyword_updade']=!empty($_POST['image_title'])?$_POST['image_title']:'';
+                $images['text_update']=!empty($_POST['image_description'])?$_POST['image_description']:'';
+				$this->data=(object)array(
+					'id'=>(int)$_POST['pid'],
+					'prfxtbl'=>isset($_POST['prfxtbl'])?$_POST['prfxtbl']:'',
+					'title'=>@$_POST['title'],
+					'text'=>empty($_POST['post-text'])?'':$_POST['post-text'],
+					'params'=>empty($_POST['post-params'])?'':$_POST['post-params'],
+					'cats'=>empty($input->cat)?'':$input->cat,
+					'pincid'=>empty($input->pincid)?'':$input->pincid,
+					'sources'=>empty($input->sources)?'':db::escape($input->sources),
+					'foruser'=>empty($_POST['foruser'])?0:(int)$_POST['foruser'],
+					'images'=>$images,
+					'site'=>empty($_POST['site'])?false:$_POST['site'],
+					'formAction'=>$input->save,
+					'keyword'=>empty($_POST['keyword'])?false:$_POST['keyword'],
+					'keywords'=>empty($_POST['keywords'])?array():$_POST['keywords'],
+					'new_keywords'=>empty($_POST['new_keywords'])?'':$_POST['new_keywords'],
+					'theme'=>empty($_POST['theme'])?'':$_POST['theme'],
+					'editorlinks'=>empty($_POST['editorlinks'])?false:$_POST['editorlinks'],
+				);
+			}else{
+				$this->data=(object)array(
+					'id'=>isset($input->pid)?(int)$input->pid:0,
+					'prfxtbl'=>isset($input->prfxtbl)?$input->prfxtbl:'',
+					'cat'=>empty($input->parentID)?array():array(db::escape($input->parentID)),
+				);
+			}
+		}elseif($input->act=='saveImagesMultiUpload'){
+			$images['files']=!empty($_FILES['images']['tmp_name'])?$_FILES['images']['tmp_name']:false;
+			$images['keyword']=!empty($_POST['keyword'])?$_POST['keyword']:'';
+			$this->data=(object)array(
+				'id'=>(int)$_POST['pid'],
+				'tbl'=>!empty($_POST['tbl'])?$_POST['tbl']:'',
+				'title'=>!empty($_POST['title'])?$_POST['title']:'',
+				'images'=>$images,
+			);
+		}elseif($input->act=='editKeywords'){
+			$this->data=(object)array(
+				'pid'=>isset($input->pid)?(int)$input->pid:0,
+				'prfxtbl'=>!empty($input->prfxtbl)?$input->prfxtbl:'',
+			);
+		}elseif($input->act=='listByUser'){
+			$this->data=(object)array(
+				'page'=>@$input->page>0?(int)$input->page:1,
+				'num'=>empty($input->num)?5:(int)$input->num,
+				'user'=>empty($input->user)&&$input->user!=='0'?false:(int)$input->user,
+				'type'=>empty($input->type)?false:$input->type,
+			);
+		}elseif($input->act=='stat'){
+			$this->data=(object)array(
+				'user'=>empty($input->user)?0:(int)$input->user,
+				'start'=>!empty($_GET['start'])?$_GET['start']:(!empty($_COOKIE['start'])?$_COOKIE['start']:date("Y-m-d",time()-604800)),
+				'stop'=>!empty($_GET['stop'])?$_GET['stop']:(!empty($_COOKIE['stop'])?$_COOKIE['stop']:date("Y-m-d")),
+			);
+		}elseif($input->act=='socStat'){
+			$this->data=(object)array(
+				'start'=>!empty($_GET['start'])?$_GET['start']:(!empty($_COOKIE['start'])?$_COOKIE['start']:date("Y-m-d",time()-604800)),
+				'stop'=>!empty($_GET['stop'])?$_GET['stop']:(!empty($_COOKIE['stop'])?$_COOKIE['stop']:date("Y-m-d")),
+			);
+		}elseif($input->act=='imgRecount'&&$input->easy){
+			$this->data=(object)array(
+				'pid'=>db::escape($input->pid),
+				'tbl'=>db::escape($input->tbl),
+			);
+		}elseif($input->act=='imgRecountAll'){
+			$this->data=(object)array();
+		/*
+		* Обновляем статус поста
+		*/
+		}elseif($input->act=='published_update'){
+			$this->data=(object)array(
+				'pid'=>(int)$_GET['pid'],
+				'prfxtbl'=>!empty($_GET['prfxtbl'])?$_GET['prfxtbl']:'',
+				'published'=>db::escape($_GET['published']),
+			);
+		}elseif($input->act=='diff'){
+			$this->data=(object)array(
+				'id'=>isset($input->pid)?(int)$input->pid:0,
+				'from'=>isset($input->from)?(int)$input->from:0,
+				'to'=>isset($input->to)?(int)$input->to:0,
+			);
+		}elseif($input->act=='archive'){
+			$this->data=(object)array(
+				'id'=>isset($input->pid)?(int)$input->pid:0,
+			);
+		}elseif($input->act=='setAuthors'){
+			// получаем список id постов
+			$ids = array_map(function($arg){
+				return (int)$arg;
+			}, array_keys($_POST['select_author_checkbox']));
+						
+			$this->data=(object)array(
+				'ids'=>$ids,
+				'author'=>(int)$_POST['select_author_options'],
+			);
+		}elseif($input->act=='updateLike'){
+			$this->data=(object)array(
+				'pid'=>(int)$_POST['pid'],
+				'isLike'=>(int)$_POST['isLike'],
+			);
+		}elseif($input->act=='updateFBpublish'){
+			$this->data=(object)array(
+				'pid'=>(int)$_POST['pid'],
+				'isDone'=>(int)$_POST['isDone'],
+			);
+		}elseif($input->act=='install'){
+			$this->data=(object)array();
+		}elseif($input->act=='updateDates'){
+			$this->data=(object)array();
+		}else
+			$this->act=false;
+	}
+}

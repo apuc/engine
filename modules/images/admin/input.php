@@ -1,0 +1,110 @@
+<?php
+/*
+* Должен возвращать
+* $this->data - объект обработанных входных переменных
+* $this->act - какую функцию обработки используем
+*/
+class images_admin extends control{
+	function __construct($input=''){ # $input - объект входных переменных от других модулей
+		set_time_limit(0);
+		$this->data=(object)array();
+		if(!empty($input->images)&&$input->act=='edit'){
+			$input->act='save';
+		}
+		if(@$input->act==''){
+			$this->act=$input->act='index';
+		}elseif(in_array($input->act,array('install'))){
+			$this->act=$input->act;
+		}elseif($input->act=='del'){
+			$this->act=$input->act;
+			if(isset($input->ajax)){
+				$imid=@(int)$_POST['imid'];
+				$ajax=true;
+			}else{
+				$imid=@(int)$input->imid;
+				$ajax=false;
+			}
+			$this->data=(object)array(
+				'imid'=>!empty($imid)?$imid:0,
+				'ajax'=>$ajax,
+			);
+		}elseif($input->act=='delByPid'&&$input->easy){
+			$this->act=$input->act;
+			$this->data=array('pid'=>(int)$input->pid,'tbl'=>@$input->tbl);
+		}elseif($input->act=='moderate'){
+			$this->act=$input->act;
+			$this->data=array(
+				@$_GET['filter'],
+				500,
+				empty($_GET['page'])?1:$_GET['page'],
+				empty($_POST['approve'])?false:$_POST['approve'],
+			);
+		}elseif($input->act=='edit'){
+			# show form
+			$this->data=(object)array(
+				'pid'=>isset($input->pid)?(int)$input->pid:0,
+				'tbl'=>@$input->tbl,
+				'key'=>@$input->key,
+			);
+		}elseif($input->act=='save'){
+			$this->data=(object)array(
+				'pid'=>(int)$input->pid,
+				'title'=>empty($input->title)?'':$input->title,
+				'tbl'=>$input->tbl,
+				'images'=>$input->images,
+				'type'=>isset($input->images['files'][0])?'saveFile':'save',
+			);
+		}elseif($input->act=='updateKeyword'){
+			$this->data=(object)array(
+				'pid'=>(int)$input->pid,
+				'keywords'=>$input->keywords,
+                'texts'=>$input->texts,
+				'tbl'=>$input->tbl,
+			);
+		}elseif($input->act=='listofimages'){
+			$this->act=$input->act;
+			if(!$input->easy&&@!$_POST['easy']) die;
+			$this->data=(object)array(
+				'pid'=>isset($input->pid)?(int)$input->pid:0,
+				'tbl'=>@$input->tbl,
+				'image_sort'=>@$_POST['image_sort'],
+			);
+		}elseif($input->act=='checkStatus'){
+			$this->act='ImageLoadStatus';
+			$this->data=(object)array(
+				'tbl'=>@db::escape($_POST['tbl']),
+				'pid'=>@(int)$_POST['pid'],
+				'uid'=>@(int)$_POST['uid'],
+			);
+		}elseif($input->act=='searchRequest'){
+			$this->act='searchRequest';
+			
+			$this->data=(object)array(
+				'keyword'=>empty($_POST['keywords'])?false:$_POST['keywords'],
+				'nocheck'=>!empty($_POST['nocheck']) && $_POST['nocheck'] == 1,
+			);
+		}elseif($input->act=='crop'){
+			$this->act='crop';
+			$this->data=(object)array(
+				'url'=>$input->url,
+				'playicon'=>$input->playicon,
+				'scale'=>(float)$input->scale,
+				'x1'=>(int)$input->x1,
+				'y1'=>(int)$input->y1,
+				'width'=>(int)$input->width,
+				'height'=>(int)$input->height,
+			);
+		}elseif($input->act=='playicon'){
+			$this->act='playicon';
+			$this->data=(object)array(
+				'url'=>$_POST['url'],
+				'scale'=>!empty($_POST['scale'])?(float)$_POST['scale']:false,
+				'x1'=>!empty($_POST['x1'])?(int)$_POST['x1']:0,
+				'y1'=>!empty($_POST['y1'])?(int)$_POST['y1']:0,
+				'width'=>!empty($_POST['width'])?(int)$_POST['width']:0,
+				'height'=>!empty($_POST['height'])?(int)$_POST['height']:0,
+				'drop'=>(int)$_POST['drop'],
+			);
+		}
+	}
+}

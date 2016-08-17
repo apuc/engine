@@ -1,0 +1,11 @@
+.themes-import{
+	padding: 5px 0;
+}
+.themes-import-ico{
+	background: url('<?=HREF?>/files/icons/admin/themes/iset.png') no-repeat scroll -203px -283px / auto auto;
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	padding: 0;
+	float: left;
+}

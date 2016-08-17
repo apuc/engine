@@ -1,0 +1,1 @@
+<img style="display:none;" src="<?=HREF?>/s.gif?ref=<?=urlencode(@$_SERVER['HTTP_REFERER'])?>&uri=<?=urlencode($_SERVER['REQUEST_URI'])?>&t=<?=time()?>"/>

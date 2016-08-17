@@ -1,0 +1,58 @@
+.left-col-post .subscribe-post{
+	border: 1px solid #FFA500;
+	border-radius: 1px 5px 5px;
+	display: none;
+	margin: -16px 0 20px;
+	padding: 15px 30px;
+	text-align: center;
+	width: 86%;
+}
+.left-col-post .subscribe-post b{color: #5262b7;}
+.post-soc{
+	margin: 0 0 16px;
+	padding: 0;
+	float: left;
+}
+.post-soc li{
+	display: inline-block;
+	float: left;
+	list-style: outside none none;
+	padding-right: 10px;
+}
+.post-soc a{
+	box-shadow: 2px 2px 2px 0 silver;
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 7px 0;
+	text-align: center;
+	text-decoration: none;
+	width: 200px;
+}
+.post-soc a:hover{
+	box-shadow: 2px 2px 2px 1px silver;
+	opacity: 0.8;
+}
+.post-soc a.fb,.img-soc a.fb{
+	background: none repeat scroll 0 0 #5262b7;
+}
+.post-soc a.tw,.img-soc a.tw{
+	background: none repeat scroll 0 0 #96E5FF;
+}
+.post-soc a.gp,.img-soc a.gp{
+	background: none repeat scroll 0 0 #FF7D7D;
+}
+.post-soc a.self{
+	color: #000;
+	background: none repeat scroll 0 0 #FFA500;
+}
+.post-soc a.self-on{
+	background: none repeat scroll 0 0 #FFA500;
+	border-radius: 8px 8px 0 0;
+	box-shadow: 0 0 0 0 silver;
+	color: #000;
+	line-height: 31px;
+}	

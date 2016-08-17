@@ -1,0 +1,59 @@
+.left-col-post .title {margin-bottom: 20px; text-align: left; color: #293848; border-bottom: 1px solid #d1d5dc; padding-bottom: 12px;}
+.left-col-post .title span {font-weight: bold;}
+.left-col-post .span-big {text-transform: uppercase;}
+.left-col-post .text p {font-size: 14px; color: #607586; margin-bottom: 12px; line-height: 24px;}
+.left-col-post .text .title {margin-bottom: 16px;}
+.left-col-post .text .title h1{text-transform: uppercase; line-height: 0.8em;}
+.left-col-post .text iframe, .text img{width:100%;}
+.left-col-post .text p strong {font-size: 18px;}
+.left-col-post .text .images img{box-shadow: 2px 2px 2px -1px #607586;}
+.left-col-post .text .images img:hover{opacity: 0.8;box-shadow: 2px 2px 2px -1px silver;}
+.left-col-post .title-mini {font-size: 16px;}
+.cols-post {margin: 31px 0 38px;}
+.cols-post .title {padding-bottom: 7px;}
+.left-col-post, .right-col-post {display: inline-block; *display: inline; *zoom: 1; vertical-align: top;}
+.left-col-post h1 {font-size: 18px;margin: 0 0 5px;color: #293848 !important;}
+.right-col-post {width: 385px;}
+.right-col-post {color:#293848 !important;}
+.right-col-post h4 span{text-transform: uppercase;color: #607586}
+.right-col-post h4, .left-col-post h1 {font-size: 18px;margin: 18px 0 5px;color: #293848 !important;}
+cite {border: 1px dashed silver;color: #7f7f7f;display: inline-block;font-size: 0.95em;font-style: normal;margin: 5px 0;padding: 5px;}
+/* Всплывающая помощь.*/
+.left-col-post .tooltip{
+	position:relative;
+	z-index:1;
+	zoom:1;
+	cursor: pointer;
+}
+.left-col-post .tooltip em{display:none;}
+.left-col-post .tooltip:hover em{
+	display:block;
+	position:absolute;
+	z-index:1;
+	background-color:#e6e6e6;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	line-height:normal;
+	color:#607586;
+	text-decoration:none;
+	padding:3px 5px;
+	bottom:22px;
+	right:0;
+	-webkit-box-shadow:0 0 5px #e6e6e6;
+	-moz-box-shadow:0 0 5px #e6e6e6;
+	box-shadow:0 0 5px #e6e6e6;
+}
+.left-col-post .tooltip:hover em i{
+	position:absolute;
+	z-index:1;
+	bottom:-7px;
+	right:5px;
+	border-top:7px solid #e6e6e6;
+	border-left:7px solid transparent;
+	_border-left:7px solid #e6e6e6;
+	display:block;
+	height:0;
+	overflow:hidden;
+}
+/* end Всплывающая помощь.*/

@@ -1,0 +1,13 @@
+.footer {margin: -65px auto 0;height: 65px;line-height: 63px; background: #181f28;}
+.footer span {color: #c4c9cf; float: left;}
+.footer-nav {float: right;}
+.footer-menu a {color: #c4c9cf; text-decoration: none; border-right: 1px solid #c4c9cf; padding: 0 12px 0 0; margin-right: 8px;}
+.footer-menu a:last-child {border:0;}
+.soc-mini { margin-left: 6px; height: 32px !important;}
+.soc-mini, .footer-menu {display: inline-block; *display: inline; *zoom: 1; vertical-align: top;}
+.soc-mini a {margin-top: 17px;display: inline-block; *display: inline; *zoom: 1; margin-left: 2px; vertical-align: top; width: 29px; height: 29px; background: url(/files/icons/soc-mini.png) no-repeat;}
+.soc1:hover {background-position: 0 -43px;}
+.soc2 {background-position: -40px 0 !important;}
+.soc2:hover {background-position: -40px -43px !important;}
+.soc3 {background-position: -80px 0 !important;}
+.soc3:hover {background-position: -80px -43px !important;}

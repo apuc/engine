@@ -1,0 +1,20 @@
+.breadcrumbs {
+	margin-top: 12px;
+	margin-bottom: 8px;
+	font-size: 0.97em;
+	text-transform: uppercase;
+}
+.breadcrumbs h1{
+	display:inline;
+	font-size: 1em;
+	letter-spacing:1px;
+}
+.breadcrumbs a{
+	background-color: #E6E6E6;
+	color: #607586 !important;
+	padding: 2px 5px;
+	text-decoration: none;
+}
+.breadcrumbs a:hover{
+	text-decoration:underline;
+}

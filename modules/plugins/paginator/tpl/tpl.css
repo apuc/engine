@@ -1,0 +1,6 @@
+.pagination2 {text-align: center;}
+.pagination2>ul {padding: 7px 5px; display: inline-block; *display: inline; *zoom: 1; border: 1px solid #dcdcdc;}
+.pagination2 li {background: none repeat scroll 0 0 #f2f2f2;color: #293848;display: inline-block;font-size: 18px;list-style: none outside none;margin: 0 2px;padding: 0 4px 3px;text-decoration: none;}
+.pagination2 a{text-decoration: none;}
+.pagination2 a:hover{text-decoration: underline;}
+.pagination2 .countOnPage{margin-top: 2px;color:#607586;}

@@ -1,0 +1,7 @@
+.news2 {margin-bottom: 20px;}
+.news2>div {background: #f8f8f8; border: 1px solid #d1d5dc; padding: 19px; margin-bottom: 10px;float:left;width:190px;height: 275px;overflow: hidden;}
+.news2>div:hover{box-shadow: 1px 1px 3px 2px #e6e6e6;}
+.news2 img {width: 190px;height:145px;}
+.news2-text {display: inline-block; *display: inline; *zoom: 1; vertical-align: top; width: 169px;max-height: 172px;overflow-y: hidden;}
+.news2-text .model-title {margin-bottom: 0;}
+.news2-text p, .rel-post-text {color: #607586; line-height: 17px;}

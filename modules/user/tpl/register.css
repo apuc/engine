@@ -1,0 +1,38 @@
+.register .button{
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline;
+  padding: 8px 15px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  background-color: #b01a33;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 28px;
+  padding: 0px 15px;
+  margin:10px 0;
+  border:0px;
+}
+.register .button:hover{
+	background-color: #b36767;
+} 
+.register .inputDiv{
+    background: #eee none repeat scroll 0 0;
+    border: 1px solid #a7a7a7;
+    font-style: normal;
+    padding: 2px;
+}
+.register input, .register textarea{
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  display: block;
+  line-height: 17px;
+  margin: 0;
+  width: 100%;
+}
+.register select:focus, .register input[type="text"]:focus, .register input[type="password"]:focus, .register textarea:focus {
+    outline: medium none;
+}

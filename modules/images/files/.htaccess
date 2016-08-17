@@ -1,0 +1,22 @@
+#разрешает запрашивать любые файлы, запрещенные выше
+#нужно чтобы каталоги картинок создавались автоматически
+Order deny,allow
+Allow from all
+
+RewriteEngine On
+#Если нет нужного размера картинки создаем thumb
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule images(\d+\_|\_\d+|\d+\_\d+)\/(.*\.(?:jpe?g|png|gif))$ ../../../index.php?module=images&act=mkThumb&image=$2&size=$1 [L]
+
+#background image по referer
+#RewriteCond %{HTTP_USER_AGENT} !(Googlebot|bingbot|Slurp|facebook) [NC]
+#RewriteCond %{HTTP_REFERER} ^https://(www\.)?google\.[^\?\/]+/?$
+#RewriteRule ^/?modules/images/files/images/(.+) preview/$1 [R=302,L]
+#генерация background image
+#RewriteCond %{REQUEST_URI} googleBack/.*
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule	googleBack/(.+\.(?:jpe?g|gif|png))$ ../../../index.php?module=images&act=genImg&img=$1&dir=modules/images/files/images [L]
+
+#Нет основной картинки
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . 404.png [L]

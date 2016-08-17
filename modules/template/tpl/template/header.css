@@ -1,0 +1,13 @@
+.header {height: 78px; padding-top: 18px; background: #181f28; margin-bottom: 5px;}
+.nav {display: inline-block; *display: inline; *zoom: 1; vertical-align: top; margin: 9px 0 0 78px;float: right;}
+.nav .nav-buttons{display: inline-block; float:left;}
+.nav .nav-buttons a {display: inline-block; *display: inline; *zoom: 1;margin-right: 2px; width: 106px; height: 41px; line-height: 38px; background: #2b3b4e;text-align: center; color: #fff; text-decoration: none; font-size: 16px; }
+.nav .nav-buttons a:hover {background: #ffb01f; color: #181f28;}
+.soc a {display: inline-block; *display: inline; *zoom: 1; margin-right: 8px; width: 41px; height: 41px; background: url(/files/icons/soc.png) no-repeat;}
+
+.tw {background-position: -53px 0 !important;}
+.gp {background-position: -109px 0 !important;}
+.fb:hover {background-position: 0 -59px;}
+.tw:hover {background-position: -53px -59px !important;}
+.gp:hover {background-position: -109px -60px !important;}
+.soc {display: inline-block; *display: inline; *zoom: 1; vertical-align: top; margin: 0 0 0 28px;}	

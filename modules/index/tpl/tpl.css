@@ -1,0 +1,98 @@
+.left-col, .right-col {
+	display: inline-block;
+	vertical-align: top;
+}
+.read-more{display: block;text-align: right;font-style: italic;}
+.index.left-col {
+	width: 960px; 
+	margin: 0;
+	float: left;
+}
+.index.right-col {
+	margin-bottom: 30px;
+	width: 240px;
+}
+.index .right-col{color:#293848 !important;}
+.index .right-col h4 span{text-transform: uppercase;color: #607586}
+.index .right-col h4, .left-col h1 {font-size: 18px;margin: 18px 0 5px;color: #293848 !important;}
+
+.index-models {
+	margin-top: 20px;
+}
+
+.index-models .model{
+	width: 180px;
+	height: 290px;
+	margin-right: 60px;
+	float: left;
+	margin-bottom: 30px;
+}
+.index-models .model-title{
+	max-height: 40px;
+	overflow-y: hidden;
+}
+.index-models .model.large {
+	width: 420px;
+}
+.index-models .model > a .model-image {
+	width: 180px;
+	height: 180px;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.index-models .model.large > a .model-image {
+	width: 420px;
+	height: 240px;
+}
+.index-models .model > a img{
+	opacity: 0;
+}
+.index .views_icon,.index .author_icon,.index .count_photo_icon{
+	vertical-align: middle;
+	height: 15px;
+	width: auto !important;
+	margin-top: -2px;
+}
+/* tooltip */
+.index .tooltip{
+	position:relative;
+	z-index:1;
+	zoom:1;
+	cursor: pointer;
+}
+.index .tooltip em{display:none;}
+.index .tooltip:hover em{
+	display:block;
+	position:absolute;
+	z-index:1;
+	background-color:#e6e6e6;
+	-webkit-border-radius:5px; /* красивости в виде скругленных углов */
+	-moz-border-radius:5px;
+	border-radius:5px;
+	line-height:normal;
+	color:#607586;
+	text-decoration:none;
+	padding:3px 5px;
+	bottom:22px;
+	right:0;
+	-webkit-box-shadow:0 0 5px #e6e6e6; /* красивости в виде тени */
+	-moz-box-shadow:0 0 5px #e6e6e6;
+	box-shadow:0 0 5px #e6e6e6;
+}
+.index .tooltip:hover em i{
+	position:absolute;
+	z-index:1;
+	bottom:-7px;
+	right:5px;
+	border-top:7px solid #e6e6e6;
+	border-left:7px solid transparent;
+	_border-left:7px solid #e6e6e6; /* цвет фона. это для ие6.*/
+	display:block;
+	height:0;
+	overflow:hidden;
+}
+/* end tooltip */

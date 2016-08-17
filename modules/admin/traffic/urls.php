@@ -1,0 +1,9 @@
+<?php
+$urls->admin_traffic=HREF.'/?module=admin/traffic&sort=$sort';
+$urls->admin_traffic_status=HREF.'/?module=admin/traffic&act=initParsing';
+$urls->admin_traffic_cats=HREF.'/?module=admin/traffic&act=cats&start=$date&sort=$sort&parent=$parent';
+$urls->admin_traffic_itemCat=HREF.'/?module=admin/traffic&act=itemCat&cid=$cid&sort=$sort';
+$urls->admin_traffic_posts=HREF.'/?module=admin/traffic&act=posts&start=$date&sort=$sort&cid=$cid';
+$urls->admin_traffic_itemPost=HREF.'/?module=admin/traffic&act=itemPost&pid=$pid&sort=$sort';
+$urls->admin_traffic_rivals=HREF.'/?module=admin/traffic&act=getRivals';
+?>

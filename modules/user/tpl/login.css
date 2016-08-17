@@ -1,0 +1,52 @@
+.social-auth a {
+	display: inline-block;
+	background: url('<?=HREF?>/files/user/icons/social.png');
+	height: 66px;
+	width: 66px;
+}
+.social-auth .auth-fb {
+	background-position: -4px -2px;
+}
+.social-auth .auth-gplus {
+	background-position: -230px -138px;
+}
+.social-auth .auth-tw {
+	background-position: -80px -2px;
+}
+.login .button{
+	border:0px;
+	border-radius: 8px;
+	cursor: pointer;
+	display: inline;
+	padding: 0 15px;
+	position: relative;
+	text-decoration: none;
+	vertical-align: middle;
+	background-color: #b01a33;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 28px;
+	padding:0px 15px;
+	margin:10px 0;
+}
+.login .button:hover{
+	background-color: #b36767;
+}
+.login .inputDiv{
+    background: #eee none repeat scroll 0 0;
+    border: 1px solid #a7a7a7;
+    font-style: normal;
+    padding: 2px;
+}
+.login input, .register textarea{
+  background: transparent none repeat scroll 0 0;
+  border: 0 none;
+  display: block;
+  line-height: 17px;
+  margin: 0;
+  width: 100%;
+}
+.login select:focus, .login input[type="text"]:focus, .login input[type="password"]:focus, .login textarea:focus {
+    outline: medium none;
+}

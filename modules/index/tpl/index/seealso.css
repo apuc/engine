@@ -1,0 +1,30 @@
+.cross-b a{
+	display: block;
+	float: left;
+	width: 220px;
+	text-decoration: none;
+	margin-right:26px;
+}
+.cross-b a:nth-child(4n){
+	margin-right: 0;
+}
+.cross-b a:hover{
+	text-decoration: underline;
+}
+.cross-b a div:first-child{
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 180px;
+	overflow: hidden;
+}
+.cross-b a > div img{
+	opacity: 0;
+	width: 100%;
+}
+.cross-b a > div+div{
+	text-align: center;
+	font-weight: bold;
+	height: 80px;
+	overflow: hidden;
+}

@@ -1,0 +1,26 @@
+.comments .title {margin-bottom: 16px;}
+.comments input[type="text"] {border: 1px solid #d1d5dc; color: #607586; font-size: 14px; background: #fff; padding: 0 10px; width: 96%; height: 40px; line-height: 40px;}
+.comments .right-col input[type="text"] {border: 1px solid #d1d5dc; color: #607586; font-size: 12px; background: #fff; padding: 0; width: 96%; height: 15px;line-height: 15px;}
+.comments {margin-bottom: 47px;}
+.comments .left-col textarea{min-height: 500px;}
+.comments .comments-form form {background: #f8f8f8; border: 1px solid #d1d5dc; padding: 15px 16px 12px;}
+.comments .comments-form form textarea{min-height: 200px;width: 90%; padding: 10px; font-size: 14px;}
+.comments .comments-form form span {color: #607586; text-transform: uppercase;}
+.comments .button-submit{width:100%;text-align: right;}
+.comments .button {width: 104px; height: 41px; margin: 5px 0 0; background: #2b3b4e; color: #fff; border: 0; font-size: 18px; line-height: 39px;display: inline-block;}
+.comments-text {display: inline-block; *display: inline; *zoom: 1; vertical-align: top; width: 93%;}
+
+.comments .success{display: block;padding: 2px 5px 4px;background: #90EE90; color:#FFFFFF; font-weight: bold; font-size: 1em}
+.comments .warning{display: block;padding: 2px 5px 4px;background: #FF0000; color:#FFFFFF; font-weight: bold; font-size: 1em}
+
+.comments .comments-list div {background: #f8f8f8; padding: 20px 24px 20px 18px; border: 1px solid #d1d5dc; margin-bottom: 19px;}
+.comments .comments-list div>div {background: #fff; border: 1px solid #d1d5dc; padding: 19px; margin-bottom: 20px;}
+
+.comments .comments-list a.comment-del{
+	display: block;
+	width: 10px;
+	height: 10px;
+	background: rgba(0, 0, 0, 0) url("<?=HREF?>/files/icons/posts/comments/del.png") no-repeat scroll 0 0 / 10px auto;
+	float: right;
+	cursor: pointer;
+}

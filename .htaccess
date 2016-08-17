@@ -1,0 +1,73 @@
+# php setting
+php_value post_max_size 30M
+php_value upload_max_filesize 30M
+php_value max_input_vars 50000
+
+# gzip
+<ifModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+</ifModule>
+# cache
+<IfModule mod_expires.c>
+	ExpiresActive On
+	# css, js
+	ExpiresByType text/css "access plus 1 month"
+	ExpiresByType application/javascript "access plus 1 month"
+	ExpiresByType text/javascript "access plus 1 month"
+</IfModule>
+# cache images
+<ifModule mod_headers.c>
+	<FilesMatch "\.(jpe?g|png|gif)$">
+		Header set Cache-Control "max-age=2592000"
+	</FilesMatch>
+</IfModule>
+
+#запретить листинг
+Options -Indexes
+#запретить доступ к файлам README
+<Files README>
+	order allow,deny
+	deny from all
+</Files>
+
+#ErrorDocument 404 /
+RewriteEngine On
+RewriteBase /
+
+#Запрет на служебные файлы
+RewriteRule ^\.git/? - [F] [L]
+RewriteRule ^\.gitignore$ - [F] [L]
+
+###################################################################################################
+#исключение для картинки заглушки
+RewriteRule ^files/images/404.png modules/images/files/404.png [L]
+#укороченные пути для директорий /files
+RewriteCond %{DOCUMENT_ROOT}/modules/template/tpl%{REQUEST_URI} -f
+RewriteRule ^(.*)$ modules/template/tpl/$1 [L]
+RewriteRule ^files/icons/(.*)/([^/]+)$ modules/$1/tpl/files/icons/$2 [L]
+RewriteRule ^files/([^/]+)/admin/(.*)$ modules/$1/admin/tpl/files/$2 [L]
+RewriteRule ^files/([^/]+)(.*)$ modules/$1/tpl/files$2 [L]
+###################################################################################################
+
+# сокращение для файла из сборщика стилей
+RewriteCond %{REQUEST_URI} ^/style.css
+RewriteCond %{QUERY_STRING} !(nocache|debug|default)=1
+RewriteRule style.css tmp/plugins_css/style.css [L]
+
+### Картинки
+#background image по referer
+#RewriteCond %{HTTP_USER_AGENT} !(Googlebot|bingbot|Slurp|facebook) [NC]
+#RewriteCond %{HTTP_REFERER} ^https://(www\.)?google\.[^\?\/]+/?$
+#RewriteRule ^/?images/(.+) /preview/$1 [R=302,L]
+
+#все кaртинки редиректят в modules/images/files/
+RewriteRule ^/?(images(?:\d+\_|\_\d+|\d+\_\d+)?\/.*) modules/images/files/$1 [L]
+#сокращение урла googleBack
+RewriteRule	^/?preview/(.+\.(?:jpe?g|gif|png))$ modules/images/files/googleBack/$1 [co=imagefile:$1:%{HTTP_HOST}:120:/,L]
+
+# все кроме обычных файлов, директорий, симв. ссылок отправляется на index.php
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php?%{QUERY_STRING} [NC,L]
