@@ -377,6 +377,30 @@ class handler{
 		}
 		return $data;
 	}
+
+	function createDir($theme,$path){
+		if(!$this->userHandler->rbac('themesSet')){
+			die("Forbidden");
+		}
+		$mes='';
+		#отключаем основной шаблон
+		$this->template='';
+		if(!$path||!is_array($path)||!$theme)
+			die('path fail');
+		if(substr($p=implode('/', $path), 0, 1)!='/')
+			$p='/'.$p;
+		$dir=PATH.'themes/'.$theme;
+		preg_match('!\/([^\/]+)$!', $p, $m);
+		$filename=!empty($m[1])?$m[1]:'';
+		$targetDir=str_replace($filename, '', $p);
+		mkdir($dir . $targetDir . $filename);
+		return (object)array(
+			'filename'=>$filename,
+			'mes'=>$mes,
+			'dir' => $targetDir
+		);
+	}
+
 	/*
 		создает новый tpl файл
 	*/

@@ -70,6 +70,11 @@ class admin_themes extends control{
 				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
 				'path'=>empty($_POST['path'])?false:$_POST['path'],
 			);
+		}elseif($input->act=='createDir'){
+			$this->data=(object)array(
+				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],
+				'path'=>empty($_POST['path'])?false:$_POST['path'],
+			);
 		}elseif($input->act=='delTpl'){
 			$this->data=(object)array(
 				'theme'=>empty($_POST['theme'])?false:$_POST['theme'],

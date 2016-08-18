@@ -186,12 +186,58 @@ $tpl->title="Edit theme: {$data->theme}";
 			var fileList=this;
 			$('#dialog').dialog();
 			//new file
-			var buttonNewFile=$('#dialog input:button');
+			var buttonNewFile=$('#dialog_file_btn');
 			buttonNewFile.unbind('click');
 			buttonNewFile.click(function(){
-				var name=$('#dialog input:text').val();
+				var name=$('#dialog_file_name').val();
 				if(name!=''){
 					path.push(name);
+					createTpl(path,fileList);
+				}else
+					return;
+				$('#dialog').dialog('close');
+			});
+			//new dir
+			var buttonNewDir=$('#dialog_dir_btn');
+			buttonNewDir.unbind('click');
+			buttonNewDir.click(function(){
+				var nameDir=$('#dialog_dir_name').val();
+				if(nameDir!=''){
+					path.push(nameDir);
+					createDir(path,fileList);
+				}else
+					return;
+				$('#dialog').dialog('close');
+			});
+			//browse file
+			var buttonBrowseFile=$('#dialog input:file');
+			buttonBrowseFile.unbind('change');
+			buttonBrowseFile.change(function(){
+				var file=this.files[0];
+				uploadFileTpl(path,file,fileList);
+				$('#dialog').dialog('close');
+			});
+		};
+
+		var eventNewDir=function(){
+			var path=buildPath($(this));
+			var li=$(this).parent('li');
+			if(path) path.reverse();
+			else path=new Array();
+			if(li.children('a').html()){
+				path.push(li.children('a').html());
+			}else if(li.children('span').html()){
+				path.push(li.children('span').html());
+			}
+			var fileList=this;
+			$('#dialog').dialog();
+			//new file
+			var buttonNewDir=$('#dialog_dir_btn');
+			buttonNewDir.unbind('click');
+			buttonNewDir.click(function(){
+				var nameDir=$('#dialog_dir_name').val();
+				if(nameDir!=''){
+					path.push(nameDir);
 					createTpl(path,fileList);
 				}else
 					return;
@@ -313,9 +359,23 @@ $tpl->title="Edit theme: {$data->theme}";
 				document.location.basepath+'?module=admin/themes',
 				{act:'createTpl',path:path,theme:theme},
 				function (answer){
+					console.log(answer);
 					openToEdit(path,theme);
 					var treeTargetEl=$(el).parent('li').children('ul');
 					treeTargetEl.append(answer);
+					renewEvents();
+				}
+			);
+		}
+		function createDir(path,el){
+			$.post(
+				document.location.basepath+'?module=admin/themes',
+				{act:'createDir',path:path,theme:theme},
+				function (data){
+					console.log(data);
+					//openToEdit(path,theme);
+					var treeTargetEl=$(el).parent('li').children('ul');
+					treeTargetEl.append(data);
 					renewEvents();
 				}
 			);
