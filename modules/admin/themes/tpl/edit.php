@@ -119,6 +119,7 @@ $tpl->title="Edit theme: {$data->theme}";
 			$('.right-sidebar .clone-tpl').click(eventClone);
 			//extedit button
 			$('#extedit input').change(handlerExt);
+			$('#history_edit input').change(handlerHistory);
 		});
 
 		var eventClone=function(){
@@ -205,40 +206,6 @@ $tpl->title="Edit theme: {$data->theme}";
 				if(nameDir!=''){
 					path.push(nameDir);
 					createDir(path,fileList);
-				}else
-					return;
-				$('#dialog').dialog('close');
-			});
-			//browse file
-			var buttonBrowseFile=$('#dialog input:file');
-			buttonBrowseFile.unbind('change');
-			buttonBrowseFile.change(function(){
-				var file=this.files[0];
-				uploadFileTpl(path,file,fileList);
-				$('#dialog').dialog('close');
-			});
-		};
-
-		var eventNewDir=function(){
-			var path=buildPath($(this));
-			var li=$(this).parent('li');
-			if(path) path.reverse();
-			else path=new Array();
-			if(li.children('a').html()){
-				path.push(li.children('a').html());
-			}else if(li.children('span').html()){
-				path.push(li.children('span').html());
-			}
-			var fileList=this;
-			$('#dialog').dialog();
-			//new file
-			var buttonNewDir=$('#dialog_dir_btn');
-			buttonNewDir.unbind('click');
-			buttonNewDir.click(function(){
-				var nameDir=$('#dialog_dir_name').val();
-				if(nameDir!=''){
-					path.push(nameDir);
-					createTpl(path,fileList);
 				}else
 					return;
 				$('#dialog').dialog('close');
@@ -432,13 +399,21 @@ $tpl->title="Edit theme: {$data->theme}";
 			setCookie('edit_ext',val,'365');
 			document.location.href=document.location.href;
 		};
+		var handlerHistory=function(){
+			var chk=$(this).prop('checked');
+			var val=0;
+			if(chk) val=1;
+			setCookie('edit_history',val,'365');
+			document.location.href=document.location.href;
+		};
 	})();
 </script>
 <?include $template->inc('edit/dialog.php');?>
 <div class="edittheme">
 	<div class="sidebar">
 		<?if($data->access->themesSetHandler){?>
-			<label id="extedit">расширенный <input type="checkbox"<?=$data->ext?' checked=""':''?>/></label>
+			<label id="extedit">расширенный <input type="checkbox"<?=$data->ext?' checked=""':''?>/></label><br>
+			<label id="history_edit">история <input type="checkbox"<?=$data->history?' checked=""':''?>/></label>
 		<?}?>
 		<?include $template->inc('edit/sidebar.php');?>
 	</div>

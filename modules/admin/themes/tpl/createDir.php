@@ -6,4 +6,3 @@
         <small class="new-file-icon newfile-tpl" title="new file"></small>
     </li>
 <?}?>
-<?php //var_dump($data->dir) ?>

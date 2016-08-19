@@ -157,3 +157,19 @@ function themeExists($name){
 	if(strstr($name, '/')||empty($name)) return false;
 	return file_exists($dir=PATH.'themes/'.$name)?$dir:false;
 }
+
+/**
+ * @param $file string
+ * Функция проверяет относится ли файл к файлам истории
+ * @return bool
+ */
+function isHistory($file){
+	$extension = new SplFileInfo($file);
+	if(stristr($extension->getExtension(), '-') === FALSE) {
+		return false;
+	}
+	else {
+		return true;
+	}
+
+}

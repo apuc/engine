@@ -26,6 +26,7 @@ class admin_themes extends control{
 			$this->data=(object)array(
 				'theme'=>empty($input->theme)?false:$input->theme,
 				'ext'=>empty($_COOKIE['edit_ext'])?false:(bool)$_COOKIE['edit_ext'],
+				'history'=>empty($_COOKIE['edit_history'])?false:(bool)$_COOKIE['edit_history'],
 				'clone'=>empty($input->clone)?false:$input->clone,
 			);
 		}elseif($input->act=='del'){

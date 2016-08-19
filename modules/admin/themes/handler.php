@@ -91,7 +91,7 @@ class handler{
 	/*
 		страница редактирования темы
 	*/
-	function edit($theme,$ext,$clone){
+	function edit($theme,$ext,$history,$clone){
 		if(!$this->userHandler->rbac('themesSet')){
 			$this->headers->location=HREF; return;
 		}
@@ -113,6 +113,7 @@ class handler{
 			'dir'=>makeDirTree(findTpl($dir,$struct,$ext),$theme),
 			'themesList'=>$themesList,
 			'ext'=>$ext,
+			'history'=>$history,
 			'cloneThemeDir'=>$cloneThemeDir,
 			'clone'=>$clone,
 		);
